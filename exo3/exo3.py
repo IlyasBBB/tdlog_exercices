@@ -38,6 +38,23 @@ La chaîne OK si le backlog est vide. Sinon retourner la chaîne KO.
 """
 
 
-def processLines(lines) -> str:
-    # Implementer votre réponse ici
-    return "OK"
+def processLines(lines):
+      a = 0 
+      N =  0 
+      T = 0 
+      U, V = 0, 0 
+      for line in lines:
+            if a == 0 :
+                  N = int(line)
+            elif a == 1 :
+                  T = int(line) 
+            else : 
+                 V, U = map(int, line.split())
+                 N = N- 1
+                 T = T - V + U
+            a += 1
+            if N == 0 :
+                  if T > 0:
+                        return "KO"
+                  else : 
+                        return "OK"
